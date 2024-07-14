@@ -1,1 +1,25 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Story Generator</h1>
+        <form action="/generate" method="POST">
+            <label for="prompt">Enter your prompt:</label><br>
+            <textarea id="prompt" name="prompt" rows="4" cols="50"></textarea><br><br>
+            <input type="submit" value="Generate Story">
+        </form>
+        <div class="generated-story">
+            {% if generated_text %}
+                <h2>Generated Story</h2>
+                <p>{{ generated_text }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
